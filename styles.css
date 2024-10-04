@@ -1,0 +1,270 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: none;
+    transition: .2s linear;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: bolder;
+}
+
+header .logo span {
+    color: #ff715e9f;
+}
+
+header .navbar a {
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navbar a:hover {
+    color: var(--red);
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 5px;
+}
+
+
+/* Main Content (Bagian Kiri) */
+.main-content {
+    flex: 4;
+    margin-right: 20px;
+    padding-top: 20px;
+}
+
+.carousel {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.carousel h3{
+    color: #333;
+    padding-bottom: 0.5rem;
+}
+
+.carousel p{
+    color: #00000094;
+    font-weight: lighter;
+    padding-bottom: 1rem;
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.slide {
+    display: none;
+    height: 100%; /* Setengah dari ukuran box */
+    width: 100%; /* Lebar kembali seperti semula */
+    text-align: center;
+    line-height: 80px; /* Agar teks di tengah secara vertikal */
+    margin: auto;
+    position: absolute; /* Agar slide bertumpuk */
+}
+
+.slide img {
+    width: 70%; /* Mengatur gambar agar memenuhi lebar slide */
+    height: auto; /* Menjaga rasio aspek gambar */
+    max-height: 100%; /* Mengatur tinggi maksimum untuk gambar */
+    object-fit: cover; /* Menjaga proporsi gambar */
+}
+
+.carousel-indicators {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #FF725E;
+}
+
+.subtema{
+    font-size: large;
+    margin-top: 0.75rem;
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+
+/* Deskripsi Point-Point */
+.description {
+    background-color: #fff;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.description h4{
+    color: rgba(0, 0, 0, 0.767);
+    font-size: medium;
+}
+
+.point {
+    display: flex;
+    align-items: center;
+}
+
+.point img {
+    width: 40px; /* Ukuran gambar bisa disesuaikan */
+    height: 40px;
+    margin-right: 10px;
+}
+
+.point p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Side Box (Bagian Kanan) */
+.side-box {
+    flex: 6;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-left: 2px solid rgba(0, 0, 0, 0.233); /* Border kiri */
+    overflow-y: auto; /* Aktifkan scroll vertikal */
+    max-height: 525px; /* Tentukan tinggi maksimum sesuai kebutuhan */
+}
+
+
+.box-title {
+    padding-left: 5px;
+    padding-top: 20px;
+}
+
+.box-p{
+    padding-left: 5px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+}
+
+.round-btn {
+    border: none;
+    width: 5.5rem;  /* Width and height must be the same */
+    height: 5.5rem; /* Adjust this size as needed */
+    border-radius: 50%; /* Ensures the button is perfectly round */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.round-btn:hover{
+    background-color: transparent;
+}
+
+
+.round-btn img {
+    width: 100%; /* Mengatur gambar untuk mengisi lebar tombol */
+    height: auto; /* Menjaga rasio aspek gambar */
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+}
+
+.button-container span {
+    margin-left: -13px;
+    display: block; /* Agar span berada di baris baru */
+    margin-top: 5px; /* Spasi antara tombol dan teks */
+}
+
+.button-container {
+    text-align: center; /* Pusatkan teks di bawah tombol */
+    margin: 10px; /* Spasi antar tombol dan teks */
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Agar fleksibel di layar kecil */
+    width: 100%;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+}
+
+.footer p, .footer a {
+    margin: 0 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+}
+
