@@ -236,6 +236,21 @@ const specialistResponses = {
         "Kamu harus ngobrol sama Spesialis Gizi biar cepet sembuh.",
         "Kalo sakit itu sebaiknya kamu cek ke Spesialis Gizi deh."
     ],
+    "putus": [
+        "awokawok mampus"
+    ],
+    "sakit hati": [
+        "harus rajin ibadah aja itu mah"
+    ],
+    "galau": [
+        "udah lupain aja dia kayak kamu lupain tuhanmu"
+    ],
+    "pacar": [
+        "astagfirullah no komen ah dosa"
+    ],
+    "mata": [
+        "dikit lagi jadi sharingannya"
+    ],
 };
 
 // Fungsi untuk menambahkan pesan ke chat
