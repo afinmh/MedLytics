@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedLytics</title>
+    <title>MedKit</title>
     <link rel="stylesheet" href="/public/css/styles.css">
 </head>
 <header>
-    <a href='#' class="logo">MedLytics <span>.</span></a>
+    <a href='#' class="logo">MedKit <span>.</span></a>
     <nav class="navbar">
         <a href="#openModal" id="openModalLink">About</a>
     </nav>
@@ -20,7 +20,7 @@
     <div class="main-content">
         <!-- Carousel -->
         <div class="carousel">
-            <h3>Cek Keluhan di MedLytics</h3>
+            <h3>Cek Keluhan di MedKit</h3>
             <p>Layanan telemedisin yang siap siaga untuk bantu kamu hidup lebih sehat</p>
             <div class="carousel-slides">
                 <!-- Isi Carousel -->
@@ -47,7 +47,7 @@
 
         <!-- Deskripsi Point-Point -->
         <div class="description">
-            <h4>Mengapa MedLytics?</h4>
+            <h4>Mengapa MedKit?</h4>
             <div class="point">
                 <img src="public/asset/qna.gif" alt="Icon Point 1">
                 <p>Tanya Jawab Keluhan yang Anda Rasakan</p>
@@ -67,11 +67,26 @@
     <div class="side-box">
         <h3 class="box-title">Cari Penyakit atau Keluhan Anda</h3>
         <p class="box-p">Pilih kategori yang tersedia sesuai kondisimu</p>
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box">
+                <div class="chat-message bot-message">Bingung sakit apa? sini aku bantu</div>
+            </div>
+        
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Ketik pesan anda di sini..." />
+                <button id="send-btn">Kirim</button>
+            </div>
+        </div>
+        
         <div class="button-grid">
             <!-- Button grid 3x3 -->
             <div class="button-container">
+                <button class="round-btn"><img src="public/asset/umumm.webp" alt="Umum" /></button>
+                <span>Dokter Umum</span>
+            </div>
+            <div class="button-container">
                 <button class="round-btn"><img src="public/asset/batuk.webp" alt="Batuk" /></button>
-                <span>Batuk</span>
+                <span>Spesialis THT</span>
             </div>
             <div class="button-container">
                 <button class="round-btn"><img src="public/asset/paru.webp" alt="Flu" /></button>
@@ -83,7 +98,7 @@
             </div>
             <div class="button-container">
                 <button class="round-btn"><img src="public/asset/gigi.webp" alt="Batuk" /></button>
-                <span>Gigi</span>
+                <span>Spesialis Gigi</span>
             </div>
             <div class="button-container">
                 <button class="round-btn"><img src="public/asset/kulit.webp" alt="Flu" /></button>
@@ -141,7 +156,7 @@
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
-        <p>&copy; 2024 MedLytics</p>
+        <p>&copy; 2024 MedKit</p>
         <div class="footer-links">
             <a href="https://github.com/afinmh" target="_blank">
                 <img src="public/asset/github.png" alt="GitHub" class="footer-icon">
@@ -189,6 +204,7 @@
 
 </script>
 
+<script src="/public/js/script.js" type="module"></script>
 </body>
 
 </html>
