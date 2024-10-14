@@ -173,7 +173,7 @@ const specialistResponses = {
         "Kamu harus ngobrol sama Spesialis Kulit biar cepet sembuh.",
         "Kalo sakit itu sebaiknya kamu cek ke Spesialis Kulit deh."
     ],
-    "sakit tenggorokan": [
+    "tenggorokan": [
         "Hmmm, sepertinya kamu harus konsultasi ke Spesialis THT.",
         "Kayaknya kamu harus ke Spesialis THT deh.",
         "Spesialis THT pasti bisa bantu kamu.",
