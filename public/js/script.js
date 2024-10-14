@@ -215,6 +215,13 @@ const specialistResponses = {
         "Kamu harus ngobrol sama Dokter Umum biar cepet sembuh.",
         "Kalo sakit itu sebaiknya kamu cek ke Dokter Umum deh."
     ],
+    "lelah": [
+        "Hmmm, sepertinya kamu harus konsultasi ke Dokter Umum.",
+        "Kayaknya kamu harus ke Dokter Umum deh.",
+        "Dokter Umum pasti bisa bantu kamu.",
+        "Kamu harus ngobrol sama Dokter Umum biar cepet sembuh.",
+        "Kalo sakit itu sebaiknya kamu cek ke Dokter Umum deh."
+    ],
     "nyeri": [
         "Hmmm, sepertinya kamu harus konsultasi ke Dokter Umum.",
         "Kayaknya kamu harus ke Dokter Umum deh.",
