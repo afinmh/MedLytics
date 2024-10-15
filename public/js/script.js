@@ -145,6 +145,13 @@ const specialistResponses = {
         "Kamu harus ngobrol sama Dokter Umum biar cepet sembuh.",
         "Kalo sakit itu sebaiknya kamu cek ke Dokter Umum deh."
     ],
+    "dada sesak": [
+        "Hmmm, sepertinya kamu harus konsultasi ke Spesialis Paru.",
+        "Kayaknya kamu harus ke Spesialis Paru deh.",
+        "Spesialis Paru pasti bisa bantu kamu.",
+        "Kamu harus ngobrol sama Spesialis Paru biar cepet sembuh.",
+        "Kalo sakit itu sebaiknya kamu cek ke Spesialis Paru deh."
+    ],
     "mual": [
         "Hmmm, sepertinya kamu harus konsultasi ke Dokter Umum.",
         "Kayaknya kamu harus ke Dokter Umum deh.",
@@ -180,7 +187,7 @@ const specialistResponses = {
         "Kamu harus ngobrol sama Spesialis THT biar cepet sembuh.",
         "Kalo sakit itu sebaiknya kamu cek ke Spesialis THT deh."
     ],
-    "sesak napas": [
+    "sesak": [
         "Hmmm, sepertinya kamu harus konsultasi ke Spesialis Paru.",
         "Kayaknya kamu harus ke Spesialis Paru deh.",
         "Spesialis Paru pasti bisa bantu kamu.",
@@ -240,7 +247,20 @@ const specialistResponses = {
         "awokawok mampus"
     ],
     "sakit hati": [
-        "harus rajin ibadah aja itu mah"
+        "harus rajin ibadah aja itu mah",
+        "santai kawan masih banyak ikan di laut"
+    ],
+    "depresi": [
+        "coba tundukan kepala menghadap sang pencipta",
+        "mending login kawan"
+    ],
+    "halu": [
+        "jir sepuh skizo",
+        "lanjut nugas aja daripada halu"
+    ],
+    "tugas": [
+        "sini joki aja ke aku",
+        "coba nonton yutub"
     ],
     "galau": [
         "udah lupain aja dia kayak kamu lupain tuhanmu"
