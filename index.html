@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedKit</title>
     <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <header>
     <a href='#' class="logo">MedKit <span>.</span></a>
@@ -68,13 +70,28 @@
         <h3 class="box-title">Cari Penyakit atau Keluhan Anda</h3>
         <p class="box-p">Pilih kategori yang tersedia sesuai kondisimu</p>
         <div class="chat-container">
-            <div class="chat-box" id="chat-box">
-                <div class="chat-message bot-message">Bingung sakit apa? sini aku bantu</div>
+            <div class="chat-header">
+                <div class="assistant-info">
+                    <img src="public/asset/nurse.png" alt="Barbara" class="assistant-avatar">
+                    <div class="assistant-details">
+                        <h4>Barbara</h4>
+                        <span class="status">Online</span>
+                    </div>
+                </div>
+                <div class="chat-controls">
+                    <button id="clearChatBtn" class="chat-control-btn" title="Hapus Riwayat">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
             </div>
-        
+            <div class="chat-box" id="chat-box">
+                <!-- Messages will be added here dynamically -->
+            </div>
             <div class="input-container">
-                <input type="text" id="user-input" placeholder="Ketik pesan anda di sini..." />
-                <button id="send-btn">Kirim</button>
+                <input type="text" id="user-input" placeholder="Ceritakan keluhanmu..." />
+                <button id="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
             </div>
         </div>
         
@@ -205,6 +222,168 @@
 </script>
 
 <script src="/public/js/script.js" type="module"></script>
-</body>
+<script>
+const chatBox = document.getElementById('chat-box');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const clearChatBtn = document.getElementById('clearChatBtn');
 
+// Fixed API key
+const MISTRAL_API_KEY = 'QpXxoMgcaHWyIrPzkQCdYpCkIbRcJVMZ';
+
+// System prompt for medical assistant
+const systemPrompt = `You are an AI medical assistant dedicated to helping users get initial guidance regarding their health complaints and recommending consultation with appropriate doctors. Use Indonesian language in your responses. Be empathetic and informative while maintaining professionalism.`;
+
+// Initialize chat
+function initializeChat() {
+    addBotMessage("Halo! Saya Suster Barbara, asisten medis virtual Anda. Ada keluhan kesehatan yang ingin Anda diskusikan atau butuh arahan awal?");
+}
+
+// Add message to chat
+function addMessage(text, type) {
+    const messageContainer = document.createElement('div');
+    messageContainer.className = `chat-message ${type}-message`;
+    
+    // For bot messages, to allow HTML rendering for bold text, etc.
+    if (type === 'bot') {
+        // Basic sanitization (optional, but good practice if AI might produce unwanted HTML)
+        // For simple cases like bold (<b> or **), this is okay.
+        // If complex HTML is expected, a more robust sanitizer is needed.
+        let processedText = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); // Convert markdown bold to HTML bold
+        messageContainer.innerHTML = processedText;
+    } else {
+        messageContainer.textContent = text;
+    }
+    
+    chatBox.appendChild(messageContainer);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function addBotMessage(text) {
+    addMessage(text, 'bot');
+}
+
+function addUserMessage(text) { // Renamed for clarity, though your original 'addMessage(text, 'user')' call is fine
+    addMessage(text, 'user');
+}
+
+function addSystemMessage(text) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'chat-message system-message'; // Applied system-message for styling
+    messageDiv.textContent = text;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// API call function
+async function callMistralAPI(message) {
+    try {
+        const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`
+            },
+            body: JSON.stringify({
+                model: "mistral-small",
+                messages: [
+                    { role: "system", content: systemPrompt },
+                    { role: "user", content: message }
+                ],
+                temperature: 0.6,
+                max_tokens: 800 
+            })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json().catch(() => null);
+            console.error('API Error Response:', errorData);
+            return `Maaf, terjadi kesalahan saat menghubungi server (Status: ${response.status})`;
+        }
+
+        const data = await response.json();
+        if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+            return data.choices[0].message.content.trim();
+        } else {
+            console.error('Invalid API response structure:', data);
+            return "Maaf, respons dari server tidak sesuai format yang diharapkan.";
+        }
+    } catch (error) {
+        console.error('Error calling Mistral API:', error);
+        return "Maaf, terjadi kesalahan dalam memproses permintaan Anda. Periksa koneksi internet Anda.";
+    }
+}
+
+// Update the loading indicator
+function addLoadingIndicator() {
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'chat-message bot-message typing-indicator';
+    loadingDiv.innerHTML = `
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+    `;
+    chatBox.appendChild(loadingDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
+    return loadingDiv;
+}
+
+// Send message function
+async function sendMessage() {
+    const messageText = userInput.value.trim();
+    if (messageText) {
+        addUserMessage(messageText); // Using the more specific function name
+        userInput.value = '';
+        userInput.focus(); // Keep focus on input
+        
+        const loadingIndicator = addLoadingIndicator();
+        
+        const responseText = await callMistralAPI(messageText);
+        
+        loadingIndicator.remove();
+        
+        addBotMessage(responseText);
+    }
+}
+
+// Clear chat history function
+function clearChat() {
+    Swal.fire({
+        title: 'Hapus Riwayat Chat?',
+        text: "Semua percakapan akan dihapus dan tidak dapat dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#92E3A9',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            chatBox.innerHTML = '';
+            initializeChat();
+            Swal.fire(
+                'Terhapus!',
+                'Riwayat chat telah dihapus.',
+                'success'
+            );
+        }
+    });
+}
+
+// Event listeners
+sendBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+    }
+});
+
+clearChatBtn.addEventListener('click', clearChat);
+
+// Initialize chat when page loads
+initializeChat();
+</script>
+
+</body>
 </html>

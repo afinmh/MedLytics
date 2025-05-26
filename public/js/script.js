@@ -309,10 +309,6 @@ function getResponse(userMessage) {
     return response;
 }
 
-function initialBotMessage() {
-    const initialMessage = "Apa yang kamu rasain?";
-    addMessage(initialMessage, 'bot');
-}
 
 // Event listener untuk tombol kirim
 sendBtn.addEventListener('click', () => {
