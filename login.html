@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Medlitik</title>
+    <link rel="icon" href="asset/doctor.png" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #f6f8fa;
+        .login-header {
+            background: #ffffff;
+            color: #fff;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .login-main {
+            display: flex;
+            height: 100vh;
+            align-items: stretch;
+            justify-content: center;
+        }
+        .login-image {
+            flex: 1.2;
+            background: #eaf6f6;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        .login-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 1.2em 0 0 1.2em;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            display: block;
+        }
+        .login-container {
+            flex: 1;
+            max-width: 420px;
+            background: #fff;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .login-logo { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #2b7a78; font-weight: 700; }
+        .login-logo { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #2b7a78; font-weight: 700; }
+        .login-logo a { color: #3498db !important; text-decoration: none; }
+        .login-logo i { margin-right: 0.5rem; }
+        .login-title { text-align: center; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        .login-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .login-form input[type="email"], .login-form input[type="password"] { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1.25rem; font-size: 1rem; }
+        .login-form .login-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; }
+        .login-form .remember-me { display: flex; align-items: center; }
+        .login-form .remember-me input { margin-right: 0.5em; }
+        .login-form .forgot-link { color: #3498db; text-decoration: underline; font-size: 0.98em; cursor: pointer; }
+        .login-form .forgot-link { color: #3498db; text-decoration: underline; font-size: 0.98em; cursor: pointer; }
+        .login-form button { width: 100%; background: #3498db; color: #fff; border: none; padding: 0.85rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .login-form button { width: 100%; background: #3498db; color: #fff; border: none; padding: 0.85rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .login-form button:hover { background: #2980b9; }
+        .login-footer { text-align: center; margin-top: 1.5rem; color: #888; font-size: 0.95rem; }
+        .login-footer a { color: #3498db !important; text-decoration: underline; }
+        @media (max-width: 900px) {
+            .login-main { flex-direction: column; height: auto; }
+            .login-image, .login-container { border-radius: 18px 18px 0 0; max-width: 100%; }
+            .login-image img { height: 220px; }
+        }
+        @media (max-width: 600px) {
+            .login-main { flex-direction: column; height: auto; }
+            .login-image { display: none; }
+            .login-container { border-radius: 18px; max-width: 100vw; min-width: 0; }
+        }
+    </style>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-main">
+        <div class="login-image" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+            <img src="asset/login.jpg" alt="Login Medlitik">
+        </div>
+        <div class="login-container" data-aos="fade-left" data-aos-duration="1000">
+            <div class="login-logo"><a href="index.html" style="color:#2b7a78;text-decoration:none;"><i class="fas fa-book-medical"></i> Medlitik</a></div>
+            <div class="login-title">Login ke Akun Anda</div>
+            <form class="login-form" id="loginForm">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                <div class="login-row">
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe" style="margin-bottom:0;cursor:pointer;">Ingat saya</label>
+                    </div>
+                    <a class="forgot-link" href="#">Lupa password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <button type="button" id="googleLoginBtn" style="width:100%;margin-top:0.5rem;background:#fff;color:#444;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;gap:0.5rem;font-weight:600;">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" style="width:1.3em;height:1.3em;vertical-align:-0.25em;"> Login dengan Google
+                </button>
+                <div id="loginError" style="color:#d32f2f; text-align:center; margin-top:0.5rem; display:none;"></div>
+            </form>
+            <div class="login-footer">
+                Belum punya akun? <a href="register.html" style="color:#2b7a78; text-decoration:underline;">Daftar</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 100
+        });
+    </script>
+</body>
+<script>
+// Jika sudah login, redirect ke dashboard sesuai role
+const token = localStorage.getItem('token');
+const role = localStorage.getItem('role');
+if (token && role) {
+    if (role === 'user') {
+        window.location.href = '/user.html';
+    } else if (role === 'dokter') {
+        window.location.href = '/dokter.html';
+    } else if (role === 'admin') {
+        window.location.href = '/admin.html';
+    }
+}
+const loginForm = document.getElementById('loginForm');
+const loginError = document.getElementById('loginError');
+loginForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    loginError.style.display = 'none';
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try {
+        const res = await fetch('http://localhost:8000/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            loginError.textContent = data.message || 'Login gagal';
+            loginError.style.display = 'block';
+            return;
+        }
+        // Simpan token dan user ke localStorage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('role', data.role);
+        // Redirect ke halaman user
+        window.location.href = '/user.html';
+    } catch (err) {
+        loginError.textContent = 'Terjadi kesalahan koneksi.';
+        loginError.style.display = 'block';
+    }
+});
+document.getElementById('googleLoginBtn').addEventListener('click', function() {
+    window.location.href = 'http://localhost:8000/api/auth/google/redirect';
+});
+// Handle Google callback with token in URL & not_registered error
+function getQueryParams() {
+    const params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        params[key] = decodeURIComponent(value);
+    });
+    return params;
+}
+
+const params = getQueryParams();
+if (params.error === 'not_registered' && params.email) {
+    // Redirect ke register.html dan isi email
+    window.location.href = `/register.html?email=${encodeURIComponent(params.email)}`;
+}
+if (params.token && params.email && params.role) {
+    localStorage.setItem('token', params.token);
+    // Ambil data user lengkap dari backend
+    fetch('http://localhost:8000/api/user', {
+        headers: { 'Authorization': 'Bearer ' + params.token }
+    })
+    .then(async res => {
+        if (res.ok) {
+            const user = await res.json();
+            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('role', user.role || params.role);
+        } else {
+            // Fallback jika gagal fetch user
+            localStorage.setItem('user', JSON.stringify({ email: params.email, role: params.role, name: params.name }));
+            localStorage.setItem('role', params.role);
+        }
+    })
+    .finally(() => {
+        if (params.role === 'user') {
+            window.location.href = '/user.html';
+        } else {
+            window.location.href = '/';
+        }
+    });
+}
+</script>
+</html>

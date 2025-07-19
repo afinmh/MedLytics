@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokter - Medlitik</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Selamat datang, Dokter!</h1>
+    <script>
+    // Proteksi akses: hanya role dokter yang boleh masuk
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    if (!token || role !== 'dokter') {
+        window.location.href = '/login.html';
+    }
+    </script>
+</body>
+</html>

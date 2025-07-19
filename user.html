@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard User - Medlitik</title>
+    <link rel="icon" href="asset/doctor.png" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <script>
+    // Proteksi akses: hanya role user yang boleh masuk
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+    if (!token || role !== 'user') {
+        window.location.href = '/login.html';
+    }
+    </script>
+    <div class="user-dashboard">
+        <div class="user-navbar">
+            <div class="user-navbar-left">
+                <span class="logo">
+                    <span style="color:#222;font-weight:700;">Medlitik</span>
+                    <span style="color:#1eb6c1;font-weight:700;"> Health</span>
+                </span>
+            </div>
+            <div class="user-navbar-right">
+                <span class="notif-icon"><i class="fas fa-bell"></i><span class="notif-badge">2</span></span>
+                <span class="user-avatar" id="userAvatar">AM</span>
+                <div class="user-info-vertical">
+                    <span id="userName" class="user-info-name">Afin Maulana</span>
+                    <span class="user-role-badge">Pasien</span>
+                </div>
+                <span class="user-navbar-actions">
+                    <button class="icon-btn" title="Pengaturan" style="margin-right:0.5em;"><i class="fas fa-cog"></i></button>
+                    <button class="icon-btn" onclick="logout()" title="Keluar"><i class="fas fa-sign-out-alt"></i></button>
+                </span>
+    <style>
+    .user-info-vertical {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0.7em;
+        margin-right: 0.7em;
+        min-width: 50px;
+        gap: 0.1em;
+    }
+    .user-info-name {
+        font-weight: 600;
+        font-size: 1em;
+        color: #222;
+
+    }
+    .user-role-badge {
+        margin-top: 0;
+    }
+    .user-info-name {
+        font-weight: 600;
+        font-size: 1em;
+        color: #222;
+    }
+    .user-navbar-actions {
+        display: flex;
+        align-items: center;
+    }
+    .icon-btn {
+        background: none;
+        border: none;
+        color: #2b7a78;
+        font-size: 1.3em;
+        cursor: pointer;
+        padding: 0.2em 0.5em;
+        border-radius: 6px;
+        transition: background 0.15s;
+    }
+    .icon-btn:hover {
+        background: #eaf6f6;
+    }
+    </style>
+            </div>
+        </div>
+        <div class="user-main-content">
+            <h1 class="user-greeting" id="userGreeting">Selamat Datang</h1>
+            <p class="user-desc">Kelola kesehatan Anda dengan mudah dan terhubung dengan dokter terbaik.</p>
+            <div class="user-stats-grid">
+                <div class="user-stat-card">
+                    <div class="stat-title">Konsultasi Bulan Ini</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="user-stat-card">
+                    <div class="stat-title">Appointment Mendatang</div>
+                    <div class="stat-value">2</div>
+                </div>
+                <div class="user-stat-card">
+                    <div class="stat-title">Rekam Medis</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="user-stat-card">
+                    <div class="stat-title">Health Score</div>
+                    <div class="stat-value">85%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Set nama, avatar, dan greeting dari localStorage
+    function setUserDashboard() {
+        let name = 'User';
+        try {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.name) name = user.name;
+        } catch {}
+        // Inisial avatar
+        let initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0,2);
+        document.getElementById('userGreeting').textContent = 'Selamat Datang, ' + name + '!';
+        document.getElementById('userName').textContent = name;
+        document.getElementById('userAvatar').textContent = initials;
+    }
+    setUserDashboard();
+    function logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('role');
+        window.location.href = '/login.html';
+    }
+    </script>
+</body>
+</html>

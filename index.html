@@ -1,389 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medlytics</title>
-    <link rel="stylesheet" href="/public/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Medlitik - Belajar Kesehatan Online</title>
+    <link rel="icon" href="asset/doctor.png" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<header>
-    <a href='#' class="logo">Medlytics <span>.</span></a>
-    <nav class="navbar">
-        <a href="#openModal" id="openModalLink">About</a>
+<body>
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-book-medical"></i>
+                Medlitik
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#newsletter">Kontak</a></li>
+                <li><a href="login.html" class="nav-button">Login</a></li>
+            </ul>
+        </div>
     </nav>
-</header>
 
-<!-- Body -->
-<div class="container">
-    <!-- Bagian Kiri (Isi Utama) -->
-    <div class="main-content">
-        <!-- Carousel -->
-        <div class="carousel">
-            <h3>Cek Keluhan di Medlytics</h3>
-            <p>Layanan telemedisin yang siap siaga untuk bantu kamu hidup lebih sehat</p>
-            <div class="carousel-slides">
-                <!-- Isi Carousel -->
-                <div class="slide active">
-                    <img src="public/asset/slide1.svg" alt="Deskripsi Slide 1" />
-                </div>
-                <div class="slide">
-                    <img src="public/asset/slide2.svg" alt="Deskripsi Slide 2" />
-                </div>
-                <div class="slide">
-                    <img src="public/asset/slide3.svg" alt="Deskripsi Slide 3" />
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <h1>Medlitik</h1>
+                <p class="tagline">Konsultasi Mudah, Dukungan Berkelanjutan</p>
+                <p class="description">Medlitik menggabungkan konsultasi dokter online dengan dukungan AI lanjutan melalui chatbot cerdas untuk pengalaman pengguna yang terarah dan berkelanjutan.</p>
+                <div class="cta-buttons">
+                    <a href="login.html" class="cta-button primary">Login</a>
+                    <a href="#tentang" class="cta-button secondary">Pelajari Lebih Lanjut</a>
                 </div>
             </div>
-            <div class="carousel-indicators">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
-                <span class="dot" onclick="goToSlide(2)"></span>
-            </div>
-            <h2 class="subtema active">Pemeriksaan Dengan AI</h2>
-            <h2 class="subtema">Konsultasi Secara Online</h2>
-            <h2 class="subtema">Merujuk Jurnal Kedokteran</h2>
-
-        </div>
-
-        <!-- Deskripsi Point-Point -->
-        <div class="description">
-            <h4>Mengapa Medlytics?</h4>
-            <div class="point">
-                <img src="public/asset/qna.gif" alt="Icon Point 1">
-                <p>Tanya Jawab Keluhan yang Anda Rasakan</p>
-            </div>
-            <div class="point">
-                <img src="public/asset/robot.gif" alt="Icon Point 2">
-                <p>Diagnosa Cepat dengan Teknologi AI</p>
-            </div>
-            <div class="point">
-                <img src="public/asset/online.gif" alt="Icon Point 3">
-                <p>Konsultasi Kesehatan Online 24/7</p>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <img src="asset/heroo.jpg" alt="Ilustrasi Pembelajaran Kesehatan">
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Bagian Kanan (Kotak dengan Button Bulat) -->
-    <div class="side-box">
-        <h3 class="box-title">Cari Penyakit atau Keluhan Anda</h3>
-        <p class="box-p">Pilih kategori yang tersedia sesuai kondisimu</p>
-        <div class="chat-container">
-            <div class="chat-header">
-                <div class="assistant-info">
-                    <img src="public/asset/nurse.png" alt="Barbara" class="assistant-avatar">
-                    <div class="assistant-details">
-                        <h4>Barbara</h4>
-                        <span class="status">Online</span>
+    <section id="tentang" class="about">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Mengapa Memilih Medlitik?</h2>
+            <div class="about-grid">
+                <div class="about-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="about-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Konsultasi Online dengan Dokter</h3>
+                    <p>Konsultasi langsung dengan dokter profesional secara online, mudah dan aman dari mana saja.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="about-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Post-Consultation Support</h3>
+                    <p>Dukungan lanjutan berbasis AI untuk menjawab pertanyaan dan membantu Anda setelah konsultasi selesai.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="about-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Chatbot Interaktif 24/7</h3>
+                    <p>Chatbot cerdas siap membantu Anda kapan saja untuk memastikan continuity of care dan pengalaman pengguna terbaik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 data-aos="fade-up" data-aos-duration="1000">Apa Kata Mereka?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Konsultasi di Medlitik sangat praktis, dan chatbot-nya membantu saya memahami langkah selanjutnya setelah konsultasi dengan dokter."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Andi</h4>
+                            <p>Karyawan Swasta</p>
+                            <span class="author-location"><i class="fas fa-map-marker-alt"></i> Jakarta</span>
+                        </div>
                     </div>
                 </div>
-                <div class="chat-controls">
-                    <button id="clearChatBtn" class="chat-control-btn" title="Hapus Riwayat">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Saya merasa lebih tenang karena ada dukungan AI setelah konsultasi. Semua pertanyaan saya dijawab dengan cepat dan jelas."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Maya</h4>
+                            <p>Ibu Rumah Tangga</p>
+                            <span class="author-location"><i class="fas fa-map-marker-alt"></i> Bandung</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"User experience di Medlitik sangat nyaman, proses konsultasi dan follow-up terasa seamless berkat chatbot yang responsif."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h4>Rizal</h4>
+                            <p>Mahasiswa</p>
+                            <span class="author-location"><i class="fas fa-map-marker-alt"></i> Surabaya</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="chat-box" id="chat-box">
-                <!-- Messages will be added here dynamically -->
+            <div class="testimonial-stats" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <div class="stat-item">
+                    <h3>10K+</h3>
+                    <p>Pengguna Terdaftar</p>
+                </div>
+                <div class="stat-item">
+                    <h3>25K+</h3>
+                    <p>Konsultasi Sukses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>Rating Pengguna</p>
+                </div>
             </div>
-            <div class="input-container">
-                <input type="text" id="user-input" placeholder="Ceritakan keluhanmu..." />
-                <button id="send-btn">
-                    <i class="fas fa-paper-plane"></i>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Siap Konsultasi dan Dapatkan Dukungan Berkelanjutan?</h2>
+                <p>Rasakan kemudahan konsultasi online dan support AI Medlitik untuk kesehatan Anda</p>
+                <div class="cta-features">
+                    <div class="cta-feature" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Konsultasi Online dengan Dokter</span>
+                    </div>
+                    <div class="cta-feature" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Dukungan AI Pasca Konsultasi</span>
+                    </div>
+                    <div class="cta-feature" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Chatbot Interaktif 24/7</span>
+                    </div>
+                </div >
+                <a href="login.html" class="cta-button primary" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Segera Daftar</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="newsletter" class="newsletter">
+        <div class="container">
+            <div class="newsletter-content" data-aos="fade-up" data-aos-duration="1000">
+                <h2>Dapatkan Info & Tips Kesehatan</h2>
+                <p>Berlangganan newsletter Medlitik untuk update layanan, tips kesehatan, dan teknologi AI terbaru untuk support kesehatan Anda.</p>
+                <form class="newsletter-form" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <input type="email" placeholder="Masukkan email Anda" required>
+                    <button type="submit" class="newsletter-button">
+                        <i class="fas fa-paper-plane"></i>
+                        Berlangganan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatPopup">
+        <div class="chat-header" id="chatHeader">
+            <h3><img src="asset/ustad.svg" alt="Ikon Medlitik" style="width: 2em; height: 2em; vertical-align: -0.125em; margin-right: 0.25em;"> MedlitikBot</h3>
+            <div class="chat-controls">
+                <button id="chatCollapseBtn" class="chat-control-btn" title="Ciutkan">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <button id="chatCloseBtn" class="chat-control-btn" title="Tutup">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
         </div>
-        
-        <div class="button-grid">
-            <!-- Button grid 3x3 -->
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/umumm.webp" alt="Umum" /></button>
-                <span>Dokter Umum</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/batuk.webp" alt="Batuk" /></button>
-                <span>Spesialis THT</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/paru.webp" alt="Flu" /></button>
-                <span>Spesialis Paru</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/jantung.webp" alt="Demam" /></button>
-                <span>Spesialis jantung</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/gigi.webp" alt="Batuk" /></button>
-                <span>Spesialis Gigi</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/kulit.webp" alt="Flu" /></button>
-                <span>Spesialis Kulit</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/gizi.webp" alt="Demam" /></button>
-                <span>Spesialis Gizi</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/anak.webp" alt="Demam" /></button>
-                <span>Dokter Anak</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/akal.webp" alt="Demam" /></button>
-                <span>Serangan Psikis</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/depresi.webp" alt="Batuk" /></button>
-                <span>Depresi</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/jiwa.webp" alt="Demam" /></button>
-                <span>Gangguan jiwa</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/tugas.webp" alt="Demam" /></button>
-                <span>Joki Tugas</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/hati.webp" alt="Flu" /></button>
-                <span>Sakit Hati</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/mata.webp" alt="Demam" /></button>
-                <span>Amaterasu</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/pusing.webp" alt="Demam" /></button>
-                <span>Stress</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/pusing.webp" alt="Demam" /></button>
-                <span>Coming Soon</span>
-            </div>
-            <div class="button-container">
-                <button class="round-btn"><img src="public/asset/pusing.webp" alt="Demam" /></button>
-                <span>Coming Soon</span>
-            </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-input-container">
+            <textarea id="chatInput" placeholder="Ketik pertanyaan kesehatan Anda..." rows="1"></textarea>
+            <button id="chatSendBtn"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
-</div>
+    <!-- Chat Toggle Button -->
+    <button id="chatToggleBtn" class="chat-toggle">
+        <i class="fas fa-comments"></i>
+    </button>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <p>&copy; 2024 Medlytics</p>
-        <div class="footer-links">
-            <a href="https://github.com/afinmh" target="_blank">
-                <img src="public/asset/github.png" alt="GitHub" class="footer-icon">
-            </a>
-            <a href="https://www.halodoc.com" target="_blank">Halodoc</a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="footer-main">
+                    <div class="footer-brand" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                        <div class="logo">
+                            <i class="fas fa-book-medical"></i>
+                            Medlitik
+                        </div>
+                        <p>Platform edukasi kesehatan online terbaik untuk meningkatkan kualitas hidup Anda dan keluarga.</p>
+                        <div class="social-links">
+                            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-column" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                            <h4>Navigasi</h4>
+                            <ul>
+                                <li><a href="#">Beranda</a></li>
+                                <li><a href="#tentang">Tentang</a></li>
+                                <li><a href="#newsletter">Kontak</a></li>
+                                <li><a href="login.html">Login</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                            <h4>Kontak</h4>
+                            <ul>
+                                <li><i class="fas fa-envelope"></i> info@medlitik.com</li>
+                                <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
+                                <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Medlitik. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="#">Kebijakan Privasi</a>
+                        <a href="#">Syarat & Ketentuan</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
-<script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const subtema = document.querySelectorAll('.subtema');
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.style.display = (i === index) ? 'block' : 'none';
-            slide.classList.toggle('active', i === index);
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 100
         });
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
-        });
-        subtema.forEach((tema, i) => {
-            tema.classList.toggle('active', i === index);
-        });
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        showSlide(currentSlide);
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    // Tampilkan slide pertama saat halaman dimuat
-    showSlide(currentSlide);
-
-    // Auto-ganti slide setiap 10 detik
-    setInterval(nextSlide, 10000); // 10000 ms = 10 detik
-
-</script>
-
-<script src="/public/js/script.js" type="module"></script>
-<script>
-const chatBox = document.getElementById('chat-box');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
-const clearChatBtn = document.getElementById('clearChatBtn');
-
-// Fixed API key
-const MISTRAL_API_KEY = 'QpXxoMgcaHWyIrPzkQCdYpCkIbRcJVMZ';
-
-// System prompt for medical assistant
-const systemPrompt = `You are an AI medical assistant dedicated to helping users get initial guidance regarding their health complaints and recommending consultation with appropriate doctors. Use Indonesian language in your responses. Be empathetic and informative while maintaining professionalism.`;
-
-// Initialize chat
-function initializeChat() {
-    addBotMessage("Halo! Saya Barbara, asisten medis virtual Anda. Ada keluhan kesehatan yang ingin Anda diskusikan atau butuh arahan awal?");
-}
-
-// Add message to chat
-function addMessage(text, type) {
-    const messageContainer = document.createElement('div');
-    messageContainer.className = `chat-message ${type}-message`;
-    
-    // For bot messages, to allow HTML rendering for bold text, etc.
-    if (type === 'bot') {
-        // Basic sanitization (optional, but good practice if AI might produce unwanted HTML)
-        // For simple cases like bold (<b> or **), this is okay.
-        // If complex HTML is expected, a more robust sanitizer is needed.
-        let processedText = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'); // Convert markdown bold to HTML bold
-        messageContainer.innerHTML = processedText;
-    } else {
-        messageContainer.textContent = text;
-    }
-    
-    chatBox.appendChild(messageContainer);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function addBotMessage(text) {
-    addMessage(text, 'bot');
-}
-
-function addUserMessage(text) { // Renamed for clarity, though your original 'addMessage(text, 'user')' call is fine
-    addMessage(text, 'user');
-}
-
-function addSystemMessage(text) {
-    const messageDiv = document.createElement('div');
-    messageDiv.className = 'chat-message system-message'; // Applied system-message for styling
-    messageDiv.textContent = text;
-    chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-// API call function
-async function callMistralAPI(message) {
-    try {
-        const response = await fetch('https://api.mistral.ai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${MISTRAL_API_KEY}`
-            },
-            body: JSON.stringify({
-                model: "mistral-small",
-                messages: [
-                    { role: "system", content: systemPrompt },
-                    { role: "user", content: message }
-                ],
-                temperature: 0.6,
-                max_tokens: 800 
-            })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => null);
-            console.error('API Error Response:', errorData);
-            return `Maaf, terjadi kesalahan saat menghubungi server (Status: ${response.status})`;
-        }
-
-        const data = await response.json();
-        if (data.choices && data.choices.length > 0 && data.choices[0].message) {
-            return data.choices[0].message.content.trim();
-        } else {
-            console.error('Invalid API response structure:', data);
-            return "Maaf, respons dari server tidak sesuai format yang diharapkan.";
-        }
-    } catch (error) {
-        console.error('Error calling Mistral API:', error);
-        return "Maaf, terjadi kesalahan dalam memproses permintaan Anda. Periksa koneksi internet Anda.";
-    }
-}
-
-// Update the loading indicator
-function addLoadingIndicator() {
-    const loadingDiv = document.createElement('div');
-    loadingDiv.className = 'chat-message bot-message typing-indicator';
-    loadingDiv.innerHTML = `
-        <span class="typing-dot"></span>
-        <span class="typing-dot"></span>
-        <span class="typing-dot"></span>
-    `;
-    chatBox.appendChild(loadingDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-    return loadingDiv;
-}
-
-// Send message function
-async function sendMessage() {
-    const messageText = userInput.value.trim();
-    if (messageText) {
-        addUserMessage(messageText); // Using the more specific function name
-        userInput.value = '';
-        userInput.focus(); // Keep focus on input
-        
-        const loadingIndicator = addLoadingIndicator();
-        
-        const responseText = await callMistralAPI(messageText);
-        
-        loadingIndicator.remove();
-        
-        addBotMessage(responseText);
-    }
-}
-
-// Clear chat history function
-function clearChat() {
-    Swal.fire({
-        title: 'Hapus Riwayat Chat?',
-        text: "Semua percakapan akan dihapus dan tidak dapat dikembalikan!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#92E3A9',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Hapus!',
-        cancelButtonText: 'Batal'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            chatBox.innerHTML = '';
-            initializeChat();
-            Swal.fire(
-                'Terhapus!',
-                'Riwayat chat telah dihapus.',
-                'success'
-            );
-        }
-    });
-}
-
-// Event listeners
-sendBtn.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        sendMessage();
-    }
-});
-
-clearChatBtn.addEventListener('click', clearChat);
-
-// Initialize chat when page loads
-initializeChat();
-</script>
-
+    </script>
+    <script src="js/chat.js"></script>
+    <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

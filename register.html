@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Medlitik</title>
+    <link rel="icon" href="asset/doctor.png" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html, body { height: 100%; margin: 0; padding: 0; }
+        body { background: #ffffff; font-family: 'Poppins', sans-serif; min-height: 100vh; height: 100vh; overflow: hidden; }
+        .register-main { display: flex; height: 100vh; align-items: stretch; justify-content: center; }
+        .register-container { flex: 1; max-width: 420px; background: #fff; border-radius: 18px 0 0 18px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); padding: 2.5rem 2rem; display: flex; flex-direction: column; justify-content: center; }
+        .register-logo { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #2b7a78; font-weight: 700; }
+        .register-logo { text-align: center; margin-bottom: 1.5rem; font-size: 2rem; color: #2563eb; font-weight: 700; }
+        .register-logo a { color: #3498db !important; text-decoration: none; }
+        .register-logo i { margin-right: 0.5rem; }
+        .register-title { text-align: center; font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+        .register-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
+        .register-form input { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1.25rem; font-size: 1rem; }
+        .register-form button { width: 100%; background: #3498db; color: #fff; border: none; padding: 0.85rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .register-form button { width: 100%; background: #3498db; color: #fff; border: none; padding: 0.85rem; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .register-form button:hover { background: #2980b9; }
+        .register-footer { text-align: center; margin-top: 1.5rem; color: #888; font-size: 0.95rem; }
+        .register-footer a { color: #3498db !important; text-decoration: underline; }
+        .register-image {
+            flex: 1.2;
+            background: #eaf6f6;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            border-top-right-radius: 18px;
+            border-bottom-right-radius: 18px;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+        .register-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 1.2em 1.2em 0;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            display: block;
+        }
+        @media (max-width: 900px) {
+            .register-main { flex-direction: column; height: auto; }
+            .register-container, .register-image { border-radius: 18px 18px 0 0; max-width: 100%; }
+            .register-image img { height: 220px; }
+        }
+        @media (max-width: 600px) {
+            .register-main { flex-direction: column; height: auto; }
+            .register-image { display: none; }
+            .register-container { border-radius: 18px; max-width: 100vw; min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-main">
+        <div class="register-container" data-aos="fade-right" data-aos-duration="1000">
+            <div class="register-logo"><a href="index.html"><i class="fas fa-book-medical"></i> Medlitik</a></div>
+            <div class="register-title">Daftar Akun Baru</div>
+            <form class="register-form" id="registerForm">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Buat password" required>
+                <button type="submit">Daftar</button>
+                <div id="registerError" style="color:#d32f2f; text-align:center; margin-top:0.5rem; display:none;"></div>
+            </form>
+            <div class="register-footer">
+                Sudah punya akun? <a href="login.html" style="color:#2b7a78; text-decoration:underline;">Login</a>
+            </div>
+        </div>
+        <div class="register-image" data-aos="fade-left" data-aos-duration="1000">
+            <img src="asset/regist.jpg" alt="Register Medlitik">
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            offset: 100
+        });
+    </script>
+</body>
+<script>
+// Jika sudah login, redirect ke dashboard user
+const token = localStorage.getItem('token');
+const role = localStorage.getItem('role');
+if (token && role === 'user') {
+    window.location.href = '/user.html';
+}
+const registerForm = document.getElementById('registerForm');
+const registerError = document.getElementById('registerError');
+// Isi email jika ada di query string
+function getQueryParams() {
+    const params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        params[key] = decodeURIComponent(value);
+    });
+    return params;
+}
+const params = getQueryParams();
+if (params.email) {
+    document.getElementById('email').value = params.email;
+}
+registerForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    registerError.style.display = 'none';
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try {
+        const res = await fetch('http://localhost:8000/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ name, email, password })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+            registerError.textContent = data.message || 'Registrasi gagal';
+            registerError.style.display = 'block';
+            return;
+        }
+        // Simpan token dan user ke localStorage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('role', data.user.role);
+        // Redirect ke halaman utama
+        window.location.href = '/';
+    } catch (err) {
+        registerError.textContent = 'Terjadi kesalahan koneksi.';
+        registerError.style.display = 'block';
+    }
+});
+</script>
+</html>
